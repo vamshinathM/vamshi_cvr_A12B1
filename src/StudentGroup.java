@@ -214,8 +214,35 @@ public class StudentGroup implements StudentArrayOperation  {
 
 	
 	public Student[] getNearBirthDate(Date date, int days) {
-		// Add your implementation here
-		return null;
+		if(date==null)
+                        throw new IllegalArgumentException();
+                int ct=0;
+                for(int i=0;i<students.length;i++)
+                    if(students[i].getBirthDate().getYear()==date.getYear())
+                        if(students[i].getBirthDate().getMonth()==date.getMonth()){
+                            if(Math.abs(students[i].getBirthDate().getDate()-date.getDate())<=days)
+                                ct++;
+                        }
+                        else {
+                            if(Math.abs(students[i].getBirthDate().getDate()-date.getDate())==1)
+                                if(Math.abs(students[i].getBirthDate().getDate()-date.getDate())<=days)
+                                ct++;
+                        }
+                                
+                Student []tmp=new Student[ct];
+                int k=0;
+                for(int i=0;i<students.length;i++)
+                    if(students[i].getBirthDate().getYear()==date.getYear())
+                        if(students[i].getBirthDate().getMonth()==date.getMonth()){
+                            if(Math.abs(students[i].getBirthDate().getDate()-date.getDate())<=days)
+                                tmp[k++]=students[i];
+                        }
+                        else {
+                            if(Math.abs(students[i].getBirthDate().getDate()-date.getDate())==1)
+                                if(Math.abs(students[i].getBirthDate().getDate()-date.getDate())<=days)
+                                tmp[k++]=students[i];
+                        }
+		return tmp;
 	}
 
 	
