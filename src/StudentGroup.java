@@ -17,6 +17,7 @@ public class StudentGroup implements StudentArrayOperation  {
 	 */
 	public StudentGroup(int length) {
 		this.students = new Student[length];
+		ghgfh
 	}
 
 	
