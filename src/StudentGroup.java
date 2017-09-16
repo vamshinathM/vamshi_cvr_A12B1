@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package epam;
 
 import java.util.Date;
+import java.time.LocalDate;
 
 public class StudentGroup implements StudentArrayOperation  {
 
@@ -19,45 +19,45 @@ public class StudentGroup implements StudentArrayOperation  {
 		this.students = new Student[length];
 	}
 
-	@Override
+	
 	public Student[] getStudents() {
 		
 		return students;
 	}
 
-	@Override
+	
 	public void setStudents(Student[] students){
 		if(students==null)
 			throw new IllegalArgumentException();
 		this.students=students;
 	}
 
-	@Override
+	
 	public Student getStudent(int index) {
 		if(index<0||index>=students.length)
 			throw new IllegalArgumentException();
 		return students[index];
 	}
 
-	@Override
+	
 	public void setStudent(Student student, int index) {
 		if(student==null||index<0||index>=students.length)
 			throw new IllegalArgumentException();
 		students[index]=student;
 	}
 
-	@Override
+	
 	public void addFirst(Student student) {
 		if(student==null)
 			throw new IllegalArgumentException();
 		Student tmp[]=new Student[students.length+1];
 		tmp[0]=student;
 		for(int i=0;i<students.length;i++)
-			tmp[i]=students[i];
+			tmp[i+1]=students[i];
 		students=tmp;
 	}
 
-	@Override
+	
 	public void addLast(Student student) {
 		if(student==null)
 			throw new IllegalArgumentException();
@@ -69,7 +69,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		students=tmp;
 	}
 
-	@Override
+	
 	public void add(Student student, int index) {
 		if(student==null||index<0||index>=students.length)
 			throw new IllegalArgumentException();
@@ -82,7 +82,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		students=tmp;		
 	}
 
-	@Override
+	
 	public void remove(int index) {
 		if(index<0||index>=students.length)
 			throw new IllegalArgumentException();
@@ -93,7 +93,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		students=tmp;
 	}
 
-	@Override
+
 	public void remove(Student student) {
 		if(student==null)
 			throw new IllegalArgumentException();
@@ -111,7 +111,7 @@ public class StudentGroup implements StudentArrayOperation  {
 			throw new IllegalArgumentException("Student not exist");
 	}
 
-	@Override
+	
 	public void removeFromIndex(int index) {
 		if(index<0||index>=students.length)
 			throw new IllegalArgumentException();
@@ -121,7 +121,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		students=tmp;
 	}
 
-	@Override
+	
 	public void removeFromElement(Student student) {
 		if(student==null)
 			throw new IllegalArgumentException();
@@ -138,7 +138,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		students=tmp;
 	}
 
-	@Override
+	
 	public void removeToIndex(int index) {
 		if(index<0||index>=students.length)
 			throw new IllegalArgumentException();
@@ -148,7 +148,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		students=tmp;
 	}
 
-	@Override
+	
 	public void removeToElement(Student student) {
 		if(student==null)
 			throw new IllegalArgumentException();
@@ -165,7 +165,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		students=tmp;
 	}
 
-	@Override
+	
 	public void bubbleSort() {
 		for(int i=0; i < students.length; i++){  
                  for(int j=1; j < (students.length-i); j++){  
@@ -194,19 +194,19 @@ public class StudentGroup implements StudentArrayOperation  {
 		return tmp;
 	}
 
-	@Override
+	
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
 		return null;
 	}
 
-	@Override
+	
 	public Student[] getNearBirthDate(Date date, int days) {
 		// Add your implementation here
 		return null;
 	}
 
-	@Override
+	
 	public int getCurrentAgeByDate(int indexOfStudent) {
                 if(indexOfStudent<0||indexOfStudent>students.length)
                         throw new IllegalArgumentException();
@@ -214,7 +214,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		
 	}
 
-	@Override
+	
 	public Student[] getStudentsByAge(int age) {
                 int ct=0;
 		for(int i=0;i<students.length;i++)
@@ -228,7 +228,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		return tmp;
 	}
 
-	@Override
+	
 	public Student[] getStudentsWithMaxAvgMark() {
 		double max=0;
                 for(int i=0;i<students.length;i++)
@@ -246,7 +246,7 @@ public class StudentGroup implements StudentArrayOperation  {
 		return tmp;
 	}
 
-	@Override
+	
 	public Student getNextStudent(Student student) {
                 if(student==null)
 			throw new IllegalArgumentException();
